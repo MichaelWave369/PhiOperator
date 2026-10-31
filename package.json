@@ -1,8 +1,8 @@
 {
   "name": "phioperator",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "private": true,
-  "description": "PhiOperator living training racks and portable Academy achievements",
+  "description": "PhiOperator nine-room simulated facility and portable World medals",
   "type": "module",
   "engines": {
     "node": ">=20"
@@ -12,7 +12,7 @@
   },
   "scripts": {
     "test": "node --test",
-    "check": "node --check app.js && node --check src/questions.js && node --check src/engine.js && node --check src/guard.js && node --check src/ascension-content.js && node --check src/ascension.js && node --check src/index.js && node --check src/portable-passport.js && node --check src/academy.js && node --check src/academy-ui.js && node --check src/living-labs.js && node --check src/academy-passport.js && node --check src/living-labs-ui.js"
+    "check": "node --check app.js && node --check src/questions.js && node --check src/engine.js && node --check src/guard.js && node --check src/ascension-content.js && node --check src/ascension.js && node --check src/index.js && node --check src/portable-passport.js && node --check src/academy.js && node --check src/academy-ui.js && node --check src/living-labs.js && node --check src/academy-passport.js && node --check src/living-labs-ui.js && node --check src/operator-world.js && node --check src/world-passport.js && node --check src/operator-world-ui.js"
   },
   "license": "MIT"
 }

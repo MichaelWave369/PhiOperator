@@ -6,9 +6,11 @@ import {
 import { mountAcademyUI } from './src/academy-ui.js';
 import { mountLivingLabUI } from "./src/living-labs-ui.js";
 import { listLivingBadges } from "./src/academy-passport.js";
+import { mountOperatorWorld } from "./src/operator-world-ui.js";
+import { listWorldMedals } from "./src/world-passport.js";
 
 const $ = id => document.getElementById(id);
-const panels = ['intro', 'quiz', 'result', 'ascension', 'academy', 'living'];
+const panels = ['intro', 'quiz', 'result', 'ascension', 'academy', 'living', 'world'];
 const choices = $('choices');
 const feedback = $('feedback');
 const next = $('next');
@@ -260,6 +262,18 @@ function renderPassport() {
     item.append(name,progress);
     badges.append(item);
   }
+  const medals=$("world-medals");
+  medals.replaceChildren();
+  for(const medal of listWorldMedals(passport)){
+    const box=document.createElement("div");
+    box.className="academy-badge"+(medal.earned?" academy-badge-earned":"");
+    const title=document.createElement("strong");
+    title.textContent=(medal.earned?"✳ ":"◇ ")+medal.label;
+    const progress=document.createElement("span");
+    progress.textContent=medal.mode.toUpperCase()+" • "+(medal.earned?"EARNED":"UNCLAIMED");
+    box.append(title,progress);
+    medals.append(box);
+  }
   const gallery = $('reward-grid');
   gallery.replaceChildren();
   for (const reward of listRewards(passport)) {
@@ -333,9 +347,20 @@ const livingUI = mountLivingLabUI({
     updateDossier();
   }
 });
+const operatorWorldUI = mountOperatorWorld({
+  showPanel,
+  returnToAcademy: () => academyUI.open(),
+  getPassport: () => passport,
+  savePassport: updated => {
+    passport=updated;
+    savePassport();
+    updateDossier();
+  }
+});
 const academyUI = mountAcademyUI({
   showPanel, returnToPassport: renderPassport,
-  launchLiving: (id,mode) => livingUI.open(id,mode)
+  launchLiving: (id,mode) => livingUI.open(id,mode),
+  launchWorld: (mode) => operatorWorldUI.open(mode)
 });
 $('open-academy').addEventListener('click', academyUI.open);
 $('open-academy-passport').addEventListener('click', academyUI.open);

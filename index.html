@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./ascension.css">
   <link rel="stylesheet" href="./academy.css">
+  <link rel="stylesheet" href="./world.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
@@ -23,7 +24,7 @@
           <div class="brand-sub">THE HUMAN INTERFACE INITIATIVE</div>
         </div>
       </div>
-      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.5.0</span></div>
+      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.6.0</span></div>
     </header>
 
     <main id="main" class="layout">
@@ -92,6 +93,8 @@
             <p class="ascension-hint" id="mode-note">STANDARD MODE: Answer responsibly and unlock ranks.</p>
             <div id="rank-grid" class="rank-grid" aria-label="Operator ranks"></div>
             <button id="open-academy-passport" class="button button-primary" type="button">ENTER TRAINING SIMULATORS →</button>
+            <h3 class="section-heading">THE OPERATOR'S WORLD / NINE ROOMS</h3>
+            <div id="world-medals" class="academy-badge-grid" aria-label="World campaign medals"></div>
             <h3 class="section-heading">ACADEMY BADGES / OPTIONAL PASSPORT V1 EXTENSION</h3>
             <div id="academy-badges" class="academy-badge-grid" aria-label="Living Academy badges"></div>
             <h3 class="section-heading">THE REWARD VAULT / COSMETICS + INTEGRATION CONTRACTS</h3>
@@ -123,6 +126,14 @@
             <div id="academy-menu">
               <label class="academy-toggle"><input id="academy-chaos" type="checkbox"> CHAOS SIMULATION: choose the funniest fictional disaster</label>
               <p class="ascension-hint" id="academy-status" role="status" aria-live="polite">Select a safe training room.</p>
+              <div class="academy-world-callout">
+                <div>
+                  <strong>THE OPERATOR'S WORLD / CONNECTED FACILITY</strong>
+                  <p>Explore nine rooms in three sectors. Repair connected systems, discover the hidden complaints annex and face the three-part Nexus challenge.</p>
+                  <p>PATCH-9 is already drafting a grievance report.</p>
+                </div>
+                <button id="academy-open-world" class="button button-primary" type="button">ENTER OPERATOR'S WORLD →</button>
+              </div>
               <div id="academy-labs" class="academy-grid"></div>
             </div>
             <div id="academy-play" hidden>
@@ -170,6 +181,63 @@
               <button id="living-restart" class="button button-outline" type="button">RESET SIMULATION</button>
               <button id="living-exit" class="button button-outline" type="button">← BACK TO ACADEMY</button>
             </div>
+          </div>
+        </div>
+
+        <div id="world" class="console" hidden>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>OPERATOR_WORLD.EXE</span><span>RUNG 06</span></div>
+          <div class="world-content">
+            <p class="living-safe-note">SIMULATED FACILITY • ALL ROOMS AND TOOLS ARE FICTIONAL</p>
+            <h2>THE OPERATOR'S WORLD</h2>
+            <p class="ascension-hint">Three sectors, nine connected rooms. Navigate along the corridors, investigate faults, and repair the facility in the training sandbox. Every interaction stays local to this browser.</p>
+            <div class="world-summary">
+              <span id="world-mode-label">STANDARD SIMULATION</span>
+              <span id="world-progress">ROOMS RESOLVED 0/8 • NEXUS 0/3</span>
+            </div>
+            <div id="world-signals" class="world-signals" role="status" aria-label="Simulated facility subsystem status"></div>
+            <h3 class="living-heading">01 / FACILITY MAP</h3>
+            <p class="world-map-help">Choose an adjacent, unlocked room. Repair or simulate a preceding room to reach the next one. All nine primary rooms remain accessible without certification.</p>
+            <div id="world-map" class="world-map" aria-label="Three sectors and nine simulated rooms"></div>
+            <div id="world-annex" class="world-annex" hidden>
+              <h3>TOP SECRET: DEPARTMENT OF PREVENTABLE INCIDENTS</h3>
+              <p id="world-annex-status"></p>
+              <p>COMPLAINT FILE 369: THE ROUTER FEELS UNAPPRECIATED. HR IS A TOASTER. All paperwork is imaginary.</p>
+            </div>
+            <section id="world-scene" class="world-scene" aria-labelledby="world-room-name">
+              <p class="eyebrow" id="world-room-state">AWAITING INSPECTION</p>
+              <h3 id="world-room-name">OPERATOR ATRIUM</h3>
+              <p id="world-room-problem"></p>
+              <p id="world-briefing" class="world-briefing"></p>
+              <h4 class="living-heading">02 / INSPECT VIRTUAL COMPONENTS</h4>
+              <div id="world-inspect" class="world-inspect" role="group" aria-label="Virtual equipment"></div>
+              <h4 class="living-heading">03 / CHOOSE A DIAGNOSTIC ACTION</h4>
+              <div id="world-actions" class="world-actions" role="group" aria-label="Virtual troubleshooting actions"></div>
+              <button id="world-nexus-retry" class="button button-outline" type="button" hidden>REPLAY NEXUS CHECKS</button>
+            </section>
+            <section class="world-companion-panel" aria-labelledby="world-companion-title">
+              <h3 id="world-companion-title">PATCH-9 / YOUR QUESTIONABLY HELPFUL COMPANION</h3>
+              <p id="world-companion" role="status" aria-live="polite">PATCH-9: Welcome aboard.</p>
+            </section>
+            <h3 class="living-heading">04 / SIMULATED FACILITY LOG</h3>
+            <ol id="world-log" class="living-log" aria-label="Recent fictional facility events"></ol>
+            <section id="world-report" class="world-report" hidden aria-labelledby="world-ending">
+              <p class="eyebrow">FINAL SYSTEMS REPORT / ENTERTAINMENT ONLY</p>
+              <h3 id="world-ending"></h3>
+              <p id="world-ending-copy"></p>
+              <strong id="world-ending-medal"></strong>
+            </section>
+            <div class="world-save-tools">
+              <button id="world-secret" class="button button-outline" type="button" hidden>OPEN HIDDEN COMPLAINTS ANNEX</button>
+              <button id="world-leave-secret" class="button button-outline" type="button" hidden>LEAVE SECRET ANNEX</button>
+              <button id="world-new-standard" class="button button-outline" type="button">NEW STANDARD FACILITY</button>
+              <button id="world-new-chaos" class="button button-outline" type="button">NEW CHAOS FACILITY</button>
+              <button id="world-export" class="button button-primary" type="button">EXPORT WORLD SAVE</button>
+              <input id="world-import" type="file" accept=".json,application/json" aria-label="Import a local fictional World save">
+              <label for="world-import" class="button button-outline">IMPORT WORLD SAVE</label>
+              <button id="world-exit" class="button button-outline" type="button">← RETURN TO ACADEMY</button>
+            </div>
+            <p id="world-storage" class="ascension-hint" role="status" aria-live="polite">LOCAL WORLD SAVE READY</p>
+            <p class="world-map-help">World saves are separate from the Operator Passport, are user-editable game data and are never authorization credentials. Campaign medals use the Passport's optional Academy extension.</p>
           </div>
         </div>
 
