@@ -1,6 +1,6 @@
 {
   "name": "phioperator",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "private": true,
   "description": "Retro operator training, six-rank ascension and offline Operator Passport",
   "type": "module",

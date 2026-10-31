@@ -36,7 +36,7 @@ Reserved reward IDs for later adapters:
 - domistika-workshop (Rank 4 Standard)
 - phiserve-lab (Rank 5 Standard)
 
-These IDs are **contracts**, not shipped changes to those other repositories. Integrating host software later requires a separate explicit adapter and opt-in import/transfer of the Passport. A browser-local event fires after completed trials:
+The ΦSURF / Gen.E.Wrist browser adapter is implemented in a separate Gen.E.Wrist PR and requires merging there before use. DomistikaXR and PhiServe remain contracts for future integration. Import is always an explicit user-selected file transfer, not remote synchronization. A browser-local event fires after completed trials:
 
     window.addEventListener('phioperator:progress', event => {
       console.log(event.detail);

@@ -57,3 +57,15 @@ html.operator-grid body::before {
   color: var(--mint); font: bold 10px/1.6 monospace; text-align: center;
   letter-spacing: .07em;
 }
+
+/* Rung 3: user-initiated cross-site file handoff. */
+.passport-transfer {
+  margin-top: 29px;
+  padding: 20px;
+  border: 1px solid #48736b;
+  background: #0d262a;
+  text-align: left;
+}
+.passport-transfer h3 { margin: 0 0 14px; color: var(--mint); font: bold 13px/1.5 monospace; }
+.passport-transfer p { color: #bbd0d0; font-size: 13px; line-height: 1.65; }
+.passport-transfer .button { text-decoration: none; display: inline-flex; margin-top: 7px; }
