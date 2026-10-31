@@ -1,6 +1,6 @@
 # Φ PhiOperator
 
-**The Operator's Test and the Ascension Protocol.**
+**The Operator's Test, Ascension Protocol and the Operator Academy.**
 
 A playful, offline-first training experience inspired by classic Sierra-era adventure-game puzzles. The machine does not punish ignorance. It rewards curiosity.
 
@@ -34,6 +34,16 @@ The PhiOperator browser now includes a **manual transfer path to the Gen.E.Wrist
 - No automatic cloud sync, cross-origin storage reads, hidden data transfer or increased permissions. Passport achievements are **not security credentials**.
 
 Follow [docs/bridge.md](docs/bridge.md) for the exact transfer procedure.
+
+## Rung 4: Universal Passport SDK and Operator Academy
+
+- Zero-dependency portable SDK at src/portable-passport.js, usable as an offline, pinned file by any compatible web/PWA host.
+- Three interactive, local-only training labs with three stages and three choices per stage: network diagnosis, restore/rollback and evidence verification.
+- Separate Chaos simulation scoring, with the correct real-world lesson visible after each answer.
+- Academy practice does not modify your rank, Passport format, system permissions, or host capabilities.
+- Browser/PWA adapters for PhiOS and PhiOS-Mobile are proposed in separate PRs. Native PhiOS authorization and Android HOME remain untouched.
+
+See [Portable Passport SDK](docs/sdk.md).
 
 ## SDK example
 

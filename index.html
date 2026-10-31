@@ -8,6 +8,7 @@
   <title>Φ PhiOperator | The Operator's Test</title>
   <link rel="stylesheet" href="./styles.css">
   <link rel="stylesheet" href="./ascension.css">
+  <link rel="stylesheet" href="./academy.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
@@ -22,7 +23,7 @@
           <div class="brand-sub">THE HUMAN INTERFACE INITIATIVE</div>
         </div>
       </div>
-      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.3.0</span></div>
+      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.4.0</span></div>
     </header>
 
     <main id="main" class="layout">
@@ -44,6 +45,7 @@
             <p class="intro-note">Failure is not fatal. Ignorance is not permanent. Mock system messages are extremely permanent.</p>
             <button id="start" class="button button-primary" type="button">BEGIN EVALUATION <span aria-hidden="true">↗</span></button>
             <button id="open-ascension" class="button button-outline ascension-intro-action" type="button">OPEN ASCENSION PASSPORT →</button>
+            <button id="open-academy" class="button button-outline ascension-intro-action" type="button">ENTER OPERATOR ACADEMY →</button>
           </div>
         </div>
 
@@ -79,7 +81,7 @@
         </div>
 
         <div id="ascension" class="console" hidden>
-          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ASCENSION_PROTOCOL.EXE</span><span>RUNG 03</span></div>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ASCENSION_PROTOCOL.EXE</span><span>RUNG 04</span></div>
           <div class="ascension-content">
             <h2>THE ASCENSION PROTOCOL</h2>
             <p class="ascension-lede" id="passport-summary">3 DISCIPLINES • 6 RANKS • 54 TRIALS</p>
@@ -89,6 +91,7 @@
             </div>
             <p class="ascension-hint" id="mode-note">STANDARD MODE: Answer responsibly and unlock ranks.</p>
             <div id="rank-grid" class="rank-grid" aria-label="Operator ranks"></div>
+            <button id="open-academy-passport" class="button button-primary" type="button">ENTER TRAINING SIMULATORS →</button>
             <h3 class="section-heading">THE REWARD VAULT / COSMETICS + INTEGRATION CONTRACTS</h3>
             <div id="reward-grid" class="reward-grid" aria-label="Rewards"></div>
             <h3 class="section-heading">YOUR OFFLINE OPERATOR PASSPORT</h3>
@@ -107,6 +110,28 @@
               <p>File transfer is always your choice. Different websites cannot read each other's browser storage; no automatic data sharing or permissions are granted.</p>
               <a class="button button-outline" href="https://michaelwave369.github.io/GenEWrist/" target="_blank" rel="noopener noreferrer">OPEN GEN.E.WRIST ↗</a>
             </section>
+          </div>
+        </div>
+
+        <div id="academy" class="console" hidden>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ACADEMY_SIMULATOR.EXE</span><span>3 / 3 / 3</span></div>
+          <div class="ascension-content">
+            <h2>THE OPERATOR ACADEMY</h2>
+            <p class="ascension-hint">Three labs. Three stages each. Three choices each. All systems simulated. No actual commands or changes to your device.</p>
+            <div id="academy-menu">
+              <label class="academy-toggle"><input id="academy-chaos" type="checkbox"> CHAOS SIMULATION: choose the funniest fictional disaster</label>
+              <p class="ascension-hint" id="academy-status" role="status" aria-live="polite">Select a safe training room.</p>
+              <div id="academy-labs" class="academy-grid"></div>
+            </div>
+            <div id="academy-play" hidden>
+              <p class="ascension-lede" id="academy-progress"></p>
+              <h3 id="academy-question"></h3>
+              <div id="academy-choices" class="choices" role="group" aria-labelledby="academy-question"></div>
+              <div id="academy-feedback" role="status" aria-live="polite" hidden></div>
+              <button id="academy-next" class="button button-primary" type="button" hidden>CONTINUE →</button>
+              <button id="academy-back" class="button button-outline" type="button">EXIT SIMULATION</button>
+            </div>
+            <button id="academy-exit" class="button button-outline" type="button">← BACK TO PASSPORT</button>
           </div>
         </div>
 
