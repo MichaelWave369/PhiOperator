@@ -15,6 +15,24 @@ export const PASSPORT_REWARDS = Object.freeze([
   { id: "phios-architect-mark", rank: 6 },
 ].map(x => Object.freeze(x)));
 
+function normalizePortableAcademy(raw) {
+  if (!raw || typeof raw !== "object" || Array.isArray(raw) ||
+      raw.version !== 1 || !Array.isArray(raw.badges) || raw.badges.length > 6)
+    throw new TypeError("Invalid Academy metadata.");
+  const known = ["network","restore","evidence"];
+  const seen = new Set();
+  const badges = raw.badges.map(item => {
+    if (!item || typeof item !== "object" || Array.isArray(item) ||
+        !known.includes(item.lab) || !["standard","chaos"].includes(item.mode) ||
+        !Number.isInteger(item.bestScore) || item.bestScore < 0 || item.bestScore > 3)
+      throw new TypeError("Invalid Academy badge.");
+    const key = item.lab+":"+item.mode;
+    if (seen.has(key)) throw new TypeError("Duplicate Academy badge.");
+    seen.add(key);
+    return {lab:item.lab,mode:item.mode,bestScore:item.bestScore};
+  });
+  return {version:1,badges};
+}
 export function validatePortablePassport(raw) {
   if (!raw || typeof raw !== "object" || Array.isArray(raw) ||
       raw.format !== PASSPORT_SCHEMA.format || raw.version !== PASSPORT_SCHEMA.version ||
@@ -32,7 +50,17 @@ export function validatePortablePassport(raw) {
     seen.add(key);
     return { rank: entry.rank, mode: entry.mode, bestScore: entry.bestScore };
   });
-  return { format: PASSPORT_SCHEMA.format, version: PASSPORT_SCHEMA.version, results };
+  const normalized = { format: PASSPORT_SCHEMA.format, version: PASSPORT_SCHEMA.version, results };
+  if (raw.extensions !== undefined) {
+    if (!raw.extensions || typeof raw.extensions !== "object" ||
+        Array.isArray(raw.extensions)) throw new TypeError("Invalid Passport extensions.");
+    if (raw.extensions.phioperatorAcademy !== undefined) {
+      normalized.extensions = {
+        phioperatorAcademy: normalizePortableAcademy(raw.extensions.phioperatorAcademy)
+      };
+    }
+  }
+  return normalized;
 }
 
 export function parsePortablePassport(text) {
