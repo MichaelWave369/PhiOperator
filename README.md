@@ -12,7 +12,7 @@ A playful, offline-first training experience inspired by classic Sierra-era adve
 - 2 modes: Standard practice and a deliberately absurd, clearly fictional Chaos simulation
 - Offline Operator Passport: stored locally where possible, exportable/importable as versioned JSON
 - Real PhiOperator color-theme unlocks
-- Optional cross-app reward IDs reserved for PhiSurf, Gen.E.Wrist, DomistikaXR, and PhiServe. The host adapters in those repositories are NOT installed yet.
+- Cross-app reward IDs are defined. The ΦSURF/Gen.E.Wrist browser adapter is proposed in a separate PR; DomistikaXR and PhiServe adapters remain future work.
 - No telemetry, accounts, third-party JS, network requirement, or runtime dependencies
 
 Open index.html in a browser or host the repository on GitHub Pages. When serving locally, run:
@@ -23,6 +23,17 @@ Run automated checks with Node 20+:
 
     npm run check
     npm test
+
+## Rung 3: Universal Operator Passport Bridge
+
+The PhiOperator browser now includes a **manual transfer path to the Gen.E.Wrist browser console**. After clearing Standard Rank 2, export your Passport JSON from the Ascension page, then visit Gen.E.Wrist → Device Settings → Operator Passport Bridge to import it.
+
+- Rank 2: optional ΦSURF Operator Shortcuts wheel and visual dial accent.
+- Rank 3: optional Gen.E.Wrist pulse cosmetic.
+- The Gen.E.Wrist adapter is implemented separately in its own GitHub PR and must be merged/deployed there before the transfer works.
+- No automatic cloud sync, cross-origin storage reads, hidden data transfer or increased permissions. Passport achievements are **not security credentials**.
+
+Follow [docs/bridge.md](docs/bridge.md) for the exact transfer procedure.
 
 ## SDK example
 

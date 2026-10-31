@@ -167,7 +167,9 @@ function showResults() {
     for (const reward of outcome.newlyUnlocked) {
       const paragraph = document.createElement('p');
       paragraph.textContent = '✳ ' + reward.label +
-        (reward.app === 'phioperator' ? '' : ' [HOST ADAPTER PENDING]');
+        (reward.app === 'phioperator' ? '' :
+          ['phisurf', 'genewrist'].includes(reward.app)
+            ? ' [EXPORT PASSPORT TO GEN.E.WRIST]' : ' [HOST ADAPTER PENDING]');
       rewards.append(paragraph);
     }
   }
@@ -251,7 +253,10 @@ function renderPassport() {
     const status = document.createElement('small');
     status.textContent = reward.app === 'phioperator'
       ? reward.unlocked ? 'UNLOCKED • PHIOPERATOR' : 'LOCKED'
-      : reward.unlocked ? 'HOST INTEGRATION PENDING' : 'LOCKED • HOST INTEGRATION PENDING';
+      : ['phisurf', 'genewrist'].includes(reward.app)
+        ? reward.unlocked ? 'GEN.E.WRIST BROWSER BRIDGE • MANUAL IMPORT'
+          : 'GEN.E.WRIST BRIDGE • CLEAR REQUIRED RANK'
+        : reward.unlocked ? 'HOST INTEGRATION PENDING' : 'LOCKED • HOST INTEGRATION PENDING';
     item.append(name, detail, status);
     if (reward.unlocked && reward.type === 'theme') {
       const button = document.createElement('button');
