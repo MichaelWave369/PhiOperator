@@ -1,0 +1,59 @@
+/* ΦOperator Rung 6: the nine-room game interface, wholly local and non-authoritative. */
+.academy-world-callout{display:grid;grid-template-columns:1fr auto;gap:22px;align-items:center;border:1px solid var(--mint);background:linear-gradient(130deg,#12342e,#121c32);padding:20px;margin:16px 0}
+.academy-world-callout strong{color:var(--mint);font:700 14px monospace}
+.academy-world-callout p{font:12px/1.6 monospace;color:#a9c5c1;max-width:540px}
+.academy-world-callout .button{max-width:260px}
+.world-content{padding:26px}
+.world-content h2{font-size:clamp(25px,3vw,38px);margin:12px 0}
+.world-summary{display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;padding:12px 0;color:var(--mint);font:700 11px monospace}
+.world-signals{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}
+.world-signal{border:1px solid #475f60;background:#10262e;padding:9px;color:#9eb0b3;font:700 9px monospace}
+.world-signal-online{border-color:#448d78;color:var(--mint);background:#113a30}
+.world-map-help{font:11px/1.7 monospace;color:#a9bbc0;margin:8px 0}
+.world-map{display:grid;grid-template-columns:1fr;gap:12px}
+.world-sector{border:1px solid #345c5e;background:#071b25;padding:15px}
+.world-sector h3{font:700 12px monospace;color:var(--mint);margin:0}
+.world-sector p{font:11px/1.6 monospace;color:#b1c8bf;margin:5px 0 12px}
+.world-sector-rooms{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.world-room-tile{min-height:115px;padding:11px;background:#112934;border:1px solid #516a71;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:8px;text-align:left;color:var(--white);cursor:pointer}
+.world-room-tile small{font:10px monospace;color:#a4c0c7}
+.world-room-tile strong{font:700 13px/1.4 monospace}
+.world-room-tile span{font:700 9px monospace;color:var(--mint)}
+.world-room-tile:disabled{cursor:not-allowed;opacity:.42}
+.world-room-tile.world-room-current{outline:3px solid var(--mint);outline-offset:1px}
+.world-room-tile.world-room-fixed{border-color:#3a9c70;background:#0d322b}
+.world-room-tile.world-room-chaos{border-color:#b270a6;background:#2c1c34}
+.world-room-tile.world-room-chaos span{color:#f0acdf}
+.world-scene{border:1px solid var(--line);padding:20px;margin:22px 0;background:#0a1d29}
+.world-scene h3{font-size:24px;margin:10px 0}
+.world-scene p{line-height:1.65}
+.world-briefing{border-left:3px solid var(--mint);padding:10px 14px;background:#14322e;color:#cfefdf}
+.world-inspect{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.world-inspect-button{padding:16px 12px;min-height:88px;background:#172936;border:1px solid #497a7b;text-align:left;display:flex;flex-direction:column;justify-content:center;gap:9px;color:var(--white);cursor:pointer}
+.world-inspect-button strong{font:700 12px monospace;color:var(--mint)}
+.world-inspect-button small{font:10px/1.4 monospace;color:#aabfbd}
+.world-inspect-button:disabled{opacity:.45;cursor:not-allowed}
+.world-actions{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:12px 0}
+.world-tool{padding:16px 12px;min-height:106px;background:#12362c;color:var(--white);border:1px solid #5a9f85;display:flex;flex-direction:column;align-items:flex-start;justify-content:space-between;gap:12px;text-align:left;cursor:pointer}
+.world-tool strong{font:700 12px/1.5 monospace}
+.world-tool small{font:10px monospace;color:#aaccbe}
+.world-tool-decoy{background:#2d291d;border-color:#9e8955}
+.world-tool-chaos{background:#322039;border-color:#b178c5}
+.world-tool-chaos small{color:#e5b6e6}
+.world-companion-panel{padding:17px 20px;border:1px solid #a078bd;background:linear-gradient(110deg,#2b1b32,#0f2830);margin:18px 0}
+.world-companion-panel h3{font:700 12px monospace;color:#e8baff;margin:0 0 10px}
+.world-companion-panel p{font:12px/1.7 monospace;color:#e9d9ef;margin:0}
+.world-annex{padding:24px;border:1px dashed #cf8dbb;background:#32213b;margin:20px 0}
+.world-annex h3{font:700 17px monospace;color:#e9bae9}
+.world-annex p{color:#f0d8e9;line-height:1.7}
+.world-report{border:1px solid var(--mint);background:#12372f;padding:24px;margin:20px 0}
+.world-report h3{font-size:24px;margin:12px 0}
+.world-report p{font-size:14px;line-height:1.7;color:#d2e9dc}
+.world-report strong{font:700 12px monospace;color:var(--mint)}
+.world-save-tools{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin:20px 0}
+.world-save-tools .button{margin:0}
+#world-import{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+#world-import:focus-visible + label{outline:3px solid var(--mint);outline-offset:2px}
+@media(max-width:770px){.academy-world-callout{grid-template-columns:1fr}.world-content{padding:16px}.world-actions{grid-template-columns:1fr}}
+@media(max-width:500px){.world-sector-rooms{grid-template-columns:1fr}.world-inspect{grid-template-columns:1fr}.world-room-tile{min-height:88px}}
+@media(prefers-reduced-motion:reduce){.world-room-tile,.world-tool,.world-inspect-button{animation:none!important;transition:none!important}}

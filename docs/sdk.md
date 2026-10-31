@@ -65,3 +65,27 @@ reading rank progress but may discard Academy extension metadata if they
 normalize and re-export the document. Until those host adapters are upgraded,
 retain your original PhiOperator JSON export as the full local copy of your
 self-reported game progress. No automatic cross-origin transfers exist.
+
+
+## Rung 6: World medal compatibility
+
+Rung 6 adds one known Academy badge lab ID called world with separate standard
+and chaos entries (up to eight Academy records total, rather than six).
+A perfect repaired or full-Chaos facility ending can add that medal to the
+existing extension without changing Passport version 1 or existing .results.
+
+The World campaign itself uses a **separate** local game-save document:
+
+    {
+      "format": "phioperator-world",
+      "version": 1,
+      "mode": "standard",
+      "...": "See src/operator-world.js for full validated state."
+    }
+
+Do not confuse the editable World save, Passport medals or simulator readouts
+with trusted network telemetry, login identity, authorization, or permission.
+No app installation, shell execution or device control is linked to World
+achievements. Older copies of the Passport SDK in other repos can still parse
+rank results but may discard unknown Academy records on re-export; keep the
+canonical PhiOperator Passport backup until consumers upgrade.

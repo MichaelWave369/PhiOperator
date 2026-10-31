@@ -61,6 +61,24 @@ Other apps using earlier pinned SDKs can still read rank results but may strip t
 
 See [Living Academy safety and testing](docs/living-academy.md).
 
+## Rung 6: The Operator's World
+
+A **connected nine-room facility** now lives inside the Operator Academy. Explore three sectors, with three rooms in each: Signal, Recovery and Evidence. Repair the Atrium, Switch Bay, Relay, Archive, Workshop, Cooling Core, Calibration Chamber and Evidence Ledger before proving all systems in the three-step Central Nexus.
+
+- **Physical map logic:** visit adjacent unlocked rooms; fixing or simulating a preceding station opens the next room. No teleporting through locked doors.
+- **Persistent consequences:** the map reflects actual training outcomes. Communications, backup, power/recovery and provenance indicators only show verified when the correct upstream fictional repairs have occurred.
+- **PATCH-9 companion:** a locally scripted, sarcastic guide reacts to discoveries, recoveries, mistakes and fictional Chaos disasters. No AI service or network connection.
+- **Secret Chaos annex:** three different absurd actions reveal the Department of Preventable Incidents, whose human resources officer is apparently a toaster.
+- **Final 3-part Nexus:** verify communications, recovery and evidence. Missing upstream proof blocks a sound certification, while Chaos choices generate a separate ending.
+- **Save and restore:** auto-save this fictional facility in local browser storage, with manual JSON export/import and a clean reset. World saves are independent of the main Operator Passport.
+- **Traveling medals:** perfect standard or Chaos endings add an optional cosmetic World badge to the existing Passport v1 Academy extension. The original 54 exam questions, 6 ranks, and 3 Living Labs remain unchanged.
+
+Start via **Operator Academy → Enter Operator's World**. Choose Standard or Chaos. No actual IP addresses are probed, no commands run, and no real system configuration is touched.
+
+**Compatibility note:** Older host apps can still read the v1 Passport rank results but may strip the expanded Academy extension when re-exporting. Export a full Passport from PhiOperator as your preserved copy until consumer SDKs are upgraded.
+
+See [Operator World guide and acceptance checklist](docs/operator-world.md).
+
 ## SDK example
 
     import {

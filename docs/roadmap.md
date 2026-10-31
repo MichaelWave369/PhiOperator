@@ -22,3 +22,14 @@ Use quiz scores for identity, intelligence, essential access or permissions. Tre
 - Six optional Academy badges in Passport v1 namespaced extension
 - Old question packs, Portable Passport SDK and other apps' rank-only imports remain compatible
 - Future: update other host adapters to preserve namespaced Academy badges on re-export
+
+
+## Rung 6: The Operator's World
+- Nine connected rooms grouped into 3 sectors, navigated across explicit corridors
+- Progressive unlocking, persistent fictional repair state and subsystem dependencies
+- Final 3-check Nexus test with true recovery, mixed and Chaos endings
+- PATCH-9 diagnostic companion, funny Chaos incidents, secret complaints annex
+- Local World Save v1 with JSON export/import, bounded validation and reset
+- Optional Standard/Chaos World medals added to Passport v1 Academy extension
+- Preserves the Rung 1–5 play modes and no-security-escalation charter
+- Future: more authored maps and a host-side reward viewer, preserving offline support

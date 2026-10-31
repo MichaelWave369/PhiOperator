@@ -17,9 +17,9 @@ export const PASSPORT_REWARDS = Object.freeze([
 
 function normalizePortableAcademy(raw) {
   if (!raw || typeof raw !== "object" || Array.isArray(raw) ||
-      raw.version !== 1 || !Array.isArray(raw.badges) || raw.badges.length > 6)
+      raw.version !== 1 || !Array.isArray(raw.badges) || raw.badges.length > 8)
     throw new TypeError("Invalid Academy metadata.");
-  const known = ["network","restore","evidence"];
+  const known = ["network","restore","evidence","world"];
   const seen = new Set();
   const badges = raw.badges.map(item => {
     if (!item || typeof item !== "object" || Array.isArray(item) ||

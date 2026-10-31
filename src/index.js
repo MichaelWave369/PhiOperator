@@ -17,3 +17,13 @@ export {
   ACADEMY_EXTENSION_ID, ACADEMY_EXTENSION_VERSION, ACADEMY_BADGE_NAMES,
   listLivingBadges, recordLivingBadge
 } from "./academy-passport.js";
+
+export {
+  WORLD_VERSION, WORLD_FORMAT, WORLD_STORAGE_KEY, WORLD_SECTORS, WORLD_ROOMS,
+  WORLD_LINKS, NEXUS_CHECKS, newOperatorWorld, validateOperatorWorld,
+  parseOperatorWorld, serializeOperatorWorld, getWorldRoom,
+  isWorldRoomUnlocked, getWorldNeighbors, enterWorldRoom, getWorldSignals,
+  getNexusStep, inspectWorldComponent, actInWorld, replayNexus,
+  canEnterSecret, enterSecretAnnex, leaveSecretAnnex, worldReport
+} from "./operator-world.js";
+export { WORLD_MEDALS, listWorldMedals, awardWorldMedal } from "./world-passport.js";

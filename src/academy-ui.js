@@ -4,7 +4,7 @@ import {
 } from "./academy.js";
 
 /** Browser-only simulations. No commands, network, permissions or saved credentials. */
-export function mountAcademyUI({ showPanel, returnToPassport, launchLiving } = {}) {
+export function mountAcademyUI({ showPanel, returnToPassport, launchLiving, launchWorld } = {}) {
   if (typeof showPanel !== "function" || typeof returnToPassport !== "function")
     throw new TypeError("Academy UI requires navigation callbacks.");
   const $ = id => document.getElementById(id);
@@ -118,6 +118,11 @@ export function mountAcademyUI({ showPanel, returnToPassport, launchLiving } = {
     }
     $("academy-labs").append(row);
   }
+  $("academy-open-world").addEventListener("click", () => {
+    if (typeof launchWorld === "function") {
+      launchWorld($("academy-chaos").checked ? "chaos" : "standard");
+    }
+  });
   $("academy-next").addEventListener("click", advance);
   $("academy-exit").addEventListener("click", returnToPassport);
   $("academy-back").addEventListener("click", menu);

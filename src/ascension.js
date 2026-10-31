@@ -30,10 +30,10 @@ const clone = passport => ({
 const isObject = item => item !== null && typeof item === 'object' && !Array.isArray(item);
 const isRank = rank => Number.isInteger(rank) && rank >= 1 && rank <= RANKS.length;
 const isMode = mode => MODES.includes(mode);
-const ACADEMY_IDS = new Set(["network", "restore", "evidence"]);
+const ACADEMY_IDS = new Set(["network", "restore", "evidence", "world"]);
 export function validateAcademyExtension(raw) {
   if (!isObject(raw) || raw.version !== 1 ||
-      !Array.isArray(raw.badges) || raw.badges.length > 6)
+      !Array.isArray(raw.badges) || raw.badges.length > 8)
     throw new TypeError("Invalid PhiOperator Academy extension.");
   const seen = new Set();
   const badges = raw.badges.map(badge => {
