@@ -32,3 +32,36 @@ The same portable-passport.js module can be vendored into host projects
 for guaranteed offline startup. Document its originating PhiOperator commit
 and compare the file bytes across consumers in integration review. Do not
 fetch executable code at runtime from a different browser origin.
+
+
+## Rung 5: Academy achievements extension
+
+The canonical PhiOperator export can optionally contain this additive v1 metadata:
+
+    {
+      "format": "phioperator-passport",
+      "version": 1,
+      "results": [],
+      "extensions": {
+        "phioperatorAcademy": {
+          "version": 1,
+          "badges": [
+            {"lab":"network","mode":"standard","bestScore":3}
+          ]
+        }
+      }
+    }
+
+Valid labs: network, restore, evidence. Each has separate Standard and Chaos
+records, bestScore 0–3, at most six entries, with no duplicates.
+When absent, the original Passport remains exactly the old three-field shape.
+Rank-clearing tests remain untouched. Badges are NOT entitlements or proof of
+competence; they decorate only the game.
+
+The Rung 5 canonical portable SDK preserves/validates the known extension.
+**Older pinned hosts** (including the first versions of Gen.E.Wrist,
+PhiOS-Mobile PWA and PhiOS public site) continue accepting the v1 file and
+reading rank progress but may discard Academy extension metadata if they
+normalize and re-export the document. Until those host adapters are upgraded,
+retain your original PhiOperator JSON export as the full local copy of your
+self-reported game progress. No automatic cross-origin transfers exist.

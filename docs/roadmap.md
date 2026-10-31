@@ -14,3 +14,11 @@ Branching adventures, interactive fake DOS/Y2K Easter egg, more cosmetic challen
 
 ## Never
 Use quiz scores for identity, intelligence, essential access or permissions. Treat host security as independent. Do not claim host integrations are installed until each host repo actually supports them.
+
+## Rung 5: Living Operator Academy
+- Three six-node interactive racks, 3 phases per incident, 3 virtual actions per phase
+- Evidence inspection, misleading tests, simulated corrective tools and Chaos branches
+- Local incident log and fully offline field reports
+- Six optional Academy badges in Passport v1 namespaced extension
+- Old question packs, Portable Passport SDK and other apps' rank-only imports remain compatible
+- Future: update other host adapters to preserve namespaced Academy badges on re-export
