@@ -45,6 +45,22 @@ Follow [docs/bridge.md](docs/bridge.md) for the exact transfer procedure.
 
 See [Portable Passport SDK](docs/sdk.md).
 
+## Rung 5: Living Operator Academy
+
+**Three interactive incident theaters** now appear inside the Operator Academy in addition to the classic three-stage exercises. Each has **six clickable virtual components**, three disciplined phases (Observe / Verify / Recover), and three virtual tools per phase.
+
+- **Disappearing Internet:** inspect laptop, access point, gateway and VPN route; diagnose the path and repair it in a fully simulated rack
+- **Backup Goblin:** investigate a broken deployment, validate the backup in an isolated fictional sandbox, and roll back safely
+- **Confident Oracle:** inspect sensor drift, run null controls and report a reproducible negative result
+
+Inspect the relevant device to reveal an evidence clue before choosing the sound tool. False leads preserve the scene so you can recover. Chaos actions produce silly branching consequences, including a union representative for the router. Nothing operates real equipment, runs shell commands or modifies your files.
+
+A perfect three-phase run earns an Academy badge. Standard and Chaos badges are separate. Academy progress is stored as an **optional sanitized extension** in the same offline **PhiOperator Passport JSON version 1**; the canonical 54-question rank progression and all essential access remain unchanged.
+
+Other apps using earlier pinned SDKs can still read rank results but may strip the new optional badge extension when re-exporting, so keep the PhiOperator export as your full backup until their adapters are updated.
+
+See [Living Academy safety and testing](docs/living-academy.md).
+
 ## SDK example
 
     import {

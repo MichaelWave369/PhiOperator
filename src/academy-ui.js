@@ -4,7 +4,7 @@ import {
 } from "./academy.js";
 
 /** Browser-only simulations. No commands, network, permissions or saved credentials. */
-export function mountAcademyUI({ showPanel, returnToPassport } = {}) {
+export function mountAcademyUI({ showPanel, returnToPassport, launchLiving } = {}) {
   if (typeof showPanel !== "function" || typeof returnToPassport !== "function")
     throw new TypeError("Academy UI requires navigation callbacks.");
   const $ = id => document.getElementById(id);
@@ -101,7 +101,22 @@ export function mountAcademyUI({ showPanel, returnToPassport } = {}) {
     button.append(h, p);
     button.addEventListener("click", () =>
       start(lab.id, $("academy-chaos").checked ? "chaos" : "standard"));
-    $("academy-labs").append(button);
+    const row=document.createElement("div");
+    row.className="academy-lab-entry";
+    button.setAttribute("aria-label","Play classic three-stage "+lab.title+" simulation");
+    row.append(button);
+    if(typeof launchLiving==="function") {
+      const living=document.createElement("button");
+      living.type="button";
+      living.className="academy-living-launch";
+      living.textContent="ENTER LIVING LAB →";
+      living.setAttribute("aria-label","Enter interactive "+lab.title+" environment");
+      living.addEventListener("click",()=>{
+        launchLiving(lab.id,$("academy-chaos").checked?"chaos":"standard");
+      });
+      row.append(living);
+    }
+    $("academy-labs").append(row);
   }
   $("academy-next").addEventListener("click", advance);
   $("academy-exit").addEventListener("click", returnToPassport);

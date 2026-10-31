@@ -24,11 +24,31 @@ export const REWARDS = Object.freeze([
 const clone = passport => ({
   format: PASSPORT_FORMAT,
   version: PASSPORT_VERSION,
-  results: passport.results.map(r => ({ rank: r.rank, mode: r.mode, bestScore: r.bestScore }))
+  results: passport.results.map(r => ({ rank: r.rank, mode: r.mode, bestScore: r.bestScore })),
+  ...(passport.extensions ? {extensions:passport.extensions} : {})
 });
 const isObject = item => item !== null && typeof item === 'object' && !Array.isArray(item);
 const isRank = rank => Number.isInteger(rank) && rank >= 1 && rank <= RANKS.length;
 const isMode = mode => MODES.includes(mode);
+const ACADEMY_IDS = new Set(["network", "restore", "evidence"]);
+export function validateAcademyExtension(raw) {
+  if (!isObject(raw) || raw.version !== 1 ||
+      !Array.isArray(raw.badges) || raw.badges.length > 6)
+    throw new TypeError("Invalid PhiOperator Academy extension.");
+  const seen = new Set();
+  const badges = raw.badges.map(badge => {
+    if (!isObject(badge) || !ACADEMY_IDS.has(badge.lab) ||
+        !["standard","chaos"].includes(badge.mode) ||
+        !Number.isInteger(badge.bestScore) || badge.bestScore < 0 || badge.bestScore > 3)
+      throw new TypeError("Invalid Academy badge.");
+    const key = badge.lab + ":" + badge.mode;
+    if (seen.has(key)) throw new TypeError("Duplicate Academy badge.");
+    seen.add(key);
+    return {lab:badge.lab,mode:badge.mode,bestScore:badge.bestScore};
+  });
+  return {version:1,badges};
+}
+
 
 export function createPassport() {
   return { format: PASSPORT_FORMAT, version: PASSPORT_VERSION, results: [] };
@@ -51,11 +71,24 @@ export function validatePassport(raw) {
     seen.add(key);
     clean.results.push({ rank: result.rank, mode: result.mode, bestScore: result.bestScore });
   }
+  // Academy badges are additive, non-authoritative v1 metadata. Old Passports
+  // still have exactly {format,version,results}. Unknown extension names are
+  // ignored, not executed or blindly reflected into the exported document.
+  if (raw.extensions !== undefined) {
+    if (!isObject(raw.extensions)) throw new TypeError("Invalid Passport extensions.");
+    if (raw.extensions.phioperatorAcademy !== undefined) {
+      clean.extensions = {
+        phioperatorAcademy: validateAcademyExtension(raw.extensions.phioperatorAcademy)
+      };
+    }
+  }
   return clean;
 }
 
 export function serializePassport(passport) {
-  return JSON.stringify(validatePassport(passport), null, 2);
+  const text = JSON.stringify(validatePassport(passport), null, 2);
+  if (text.length > 16384) throw new TypeError("Passport export exceeds 16 KiB.");
+  return text;
 }
 
 export function deserializePassport(text) {

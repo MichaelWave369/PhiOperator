@@ -8,3 +8,12 @@ export {
   getDeck, getBestScore, getUnlockedRank, isRankAvailable, listRewards, isRewardUnlocked,
   createTrialSession, currentTrial, submitTrial, summarizeTrial, recordTrial
 } from './ascension.js';
+export {
+  LIVING_LABS, LIVING_PHASES, LIVING_STEPS, getLivingLab,
+  createLivingLabSession, currentLivingPhase, inspectLivingNode,
+  useLivingTool, summarizeLivingLab, livingTopology
+} from "./living-labs.js";
+export {
+  ACADEMY_EXTENSION_ID, ACADEMY_EXTENSION_VERSION, ACADEMY_BADGE_NAMES,
+  listLivingBadges, recordLivingBadge
+} from "./academy-passport.js";
