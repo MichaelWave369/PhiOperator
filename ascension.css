@@ -43,3 +43,17 @@
 [data-operator-theme="theme-chaos"] { --mint: #ff9eb3; --green: #f27195; --yellow: #ffd58c; }
 @media (max-width: 600px) { .ascension-content { padding: 17px; } .rank-grid,.reward-grid { grid-template-columns: 1fr; } .ascension-intro-action { margin-left: 0; } }
 @media (prefers-reduced-motion: reduce) { .rank-card,.reward-item { transition: none; } }
+
+/* Earned cosmetics are visible effects, not fake permissions. */
+html.operator-grid .site-shell { position: relative; z-index: 1; }
+html.operator-grid body::before {
+  content: ''; position: fixed; inset: 0; pointer-events: none; opacity: .12;
+  background-image: linear-gradient(var(--mint) 1px, transparent 1px),
+    linear-gradient(90deg, var(--mint) 1px, transparent 1px);
+  background-size: 38px 38px;
+}
+.cosmetic-stamp {
+  margin-bottom: 18px; padding: 12px 9px; border: 1px dashed var(--mint);
+  color: var(--mint); font: bold 10px/1.6 monospace; text-align: center;
+  letter-spacing: .07em;
+}

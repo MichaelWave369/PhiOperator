@@ -35,7 +35,19 @@ function useTheme(id) {
   if (id !== 'default' && !isRewardUnlocked(passport, id)) id = 'default';
   theme = id;
   document.documentElement.dataset.operatorTheme = id;
+  applyCosmetics();
   try { localStorage.setItem(THEME_KEY, id); } catch { /* optional preference */ }
+}
+function applyCosmetics() {
+  document.documentElement.classList.toggle('operator-grid', isRewardUnlocked(passport, 'screen-grid'));
+  const stamp = $('cosmetic-stamp');
+  const legend = isRewardUnlocked(passport, 'chaos-legend');
+  const architect = isRewardUnlocked(passport, 'architect-seal');
+  const menace = isRewardUnlocked(passport, 'menace-stamp');
+  stamp.hidden = !legend && !architect && !menace;
+  stamp.textContent = architect ? 'Φ369 ARCHITECT VERIFIED • COSMETIC'
+    : legend ? 'CHAOS LEGEND • SIMULATION ONLY'
+    : menace ? 'CERTIFIED TECHNOLOGICAL MENACE' : '';
 }
 function showPanel(id) {
   for (const panel of panels) $(panel).hidden = panel !== id;
