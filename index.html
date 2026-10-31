@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080f18">
+  <meta name="description" content="PhiOperator: a ridiculous retro operator challenge with actual helpful lessons. Curiosity earns the badge.">
+  <title>Φ PhiOperator | The Operator's Test</title>
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to operator console</a>
+  <div class="scanlines" aria-hidden="true"></div>
+  <div class="site-shell">
+    <header class="masthead">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">Φ</div>
+        <div>
+          <div class="brand-name">PHI<span>OPERATOR</span></div>
+          <div class="brand-sub">THE HUMAN INTERFACE INITIATIVE</div>
+        </div>
+      </div>
+      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.1.0</span></div>
+    </header>
+
+    <main id="main" class="layout">
+      <section class="primary" aria-labelledby="page-title">
+        <div class="eyebrow"><span class="tiny-square"></span> ΦOS UNIVERSAL MODULE / OP-001</div>
+        <h1 id="page-title">THE <em>OPERATOR'S</em><br> TEST<span class="cursor" aria-hidden="true">_</span></h1>
+        <p class="lede">Technology has become sufficiently advanced. Has its instruction manual?</p>
+
+        <div id="intro" class="console">
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>WELCOME.EXE</span><span>01 / 03</span></div>
+          <div class="intro-content">
+            <p class="terminal-line"><span class="prompt">&gt;</span> INITIALIZING OPERATOR QUALIFICATION PROTOCOL...</p>
+            <p class="terminal-line"><span class="prompt">&gt;</span> NINE QUESTIONS. THREE DISCIPLINES. ZERO REAL LOCKOUTS.</p>
+            <div class="intro-grid">
+              <div><strong>01</strong><span>OBSERVE</span><small>Investigate before mashing buttons.</small></div>
+              <div><strong>02</strong><span>VERIFY</span><small>Confidence is not evidence.</small></div>
+              <div><strong>03</strong><span>RECOVER</span><small>Learn, repair, continue.</small></div>
+            </div>
+            <p class="intro-note">Failure is not fatal. Ignorance is not permanent. Mock system messages are extremely permanent.</p>
+            <button id="start" class="button button-primary" type="button">BEGIN EVALUATION <span aria-hidden="true">↗</span></button>
+          </div>
+        </div>
+
+        <div id="quiz" class="console" hidden>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span id="scene">ASSESSMENT.EXE</span><span id="question-count">01 / 09</span></div>
+          <div class="question-content">
+            <div class="question-meta"><span id="pillar" class="pill">OBSERVE</span><span id="location">THE FROZEN TERMINAL</span></div>
+            <div class="progress" role="progressbar" aria-label="Questions answered" aria-valuemin="0" aria-valuemax="9" aria-valuenow="0" id="progress"><div id="progress-fill"></div></div>
+            <h2 id="question-title"></h2>
+            <div id="choices" class="choices" role="group" aria-labelledby="question-title"></div>
+            <div id="feedback" class="feedback" role="status" aria-live="polite" hidden></div>
+            <button id="next" class="button button-primary" type="button" hidden>CONTINUE <span aria-hidden="true">→</span></button>
+            <p class="keyboard-tip">KEYBOARD: 1 / 2 / 3 TO SELECT • ENTER TO CONTINUE</p>
+          </div>
+        </div>
+
+        <div id="result" class="console" hidden>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ASSESSMENT_REPORT.TXT</span><span>END</span></div>
+          <div class="result-content">
+            <div id="result-seal" class="result-seal" aria-hidden="true">Φ</div>
+            <p class="result-kicker">OPERATOR REPORT / LOCAL ONLY</p>
+            <h2 id="result-title"></h2>
+            <div id="result-score" class="result-score"></div>
+            <p id="result-copy" class="result-copy"></p>
+            <div class="result-actions">
+              <button id="retry" class="button button-primary" type="button">RESTART TEST <span aria-hidden="true">↺</span></button>
+              <button id="review" class="button button-outline" type="button">VIEW FIELD NOTES</button>
+            </div>
+            <div id="field-notes" hidden></div>
+          </div>
+        </div>
+
+        <p class="footnote"><span>※</span> A lovingly ridiculous test, not an IQ test. Essential access is never restricted.</p>
+      </section>
+
+      <aside class="sidebar" aria-label="Operator dossier">
+        <div class="side-top"><span>OPERATOR DOSSIER</span><span class="side-icon" aria-hidden="true">⊕</span></div>
+        <div class="orbital" aria-hidden="true">
+          <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit orbit-three"></div>
+          <div class="orb-center">Φ</div>
+          <span class="orbit-label left">OBSERVE</span><span class="orbit-label right">VERIFY</span><span class="orbit-label bottom">RECOVER</span>
+        </div>
+        <div class="side-divider"></div>
+        <div class="stat"><span>OPERATOR ID</span><strong>GUEST-000</strong></div>
+        <div class="stat"><span>TRAINING STATUS</span><strong id="dossier-status">AWAITING INPUT</strong></div>
+        <div class="stat"><span>QUERIES COMPLETED</span><strong id="dossier-answered">00 / 09</strong></div>
+        <div class="stat"><span>NEURAL PANIC LEVEL</span><strong class="mint">NOMINAL</strong></div>
+        <div class="side-divider"></div>
+        <div class="side-bottom"><span class="little-asterisk">✳</span> NO CLOUD. NO TRACKING.<br> &nbsp;&nbsp;&nbsp; ALL DRAMA GENERATED LOCALLY.</div>
+      </aside>
+    </main>
+
+    <footer class="footer"><span>© 2026 Φ369 LABS <b>•</b> ENTER THE FIELD</span><span>PEOPLE ABOVE PROFIT <b>///</b> CURIOSITY ABOVE EGO</span></footer>
+  </div>
+</body>
+</html>
