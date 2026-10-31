@@ -1,56 +1,55 @@
 # Φ PhiOperator
 
-## The Operator's Test
+**The Operator's Test and the Ascension Protocol.**
 
-**A retro adventure-game tribute with useful lessons hiding behind the punchlines.**
+A playful, offline-first training experience inspired by classic Sierra-era adventure-game puzzles. The machine does not punish ignorance. It rewards curiosity.
 
-PhiOperator is a zero-dependency, offline-capable-in-browser operator quiz and an embeddable JavaScript module for the Phi ecosystem. It takes inspiration from the delightful absurdity of classic Sierra-era copy-protection questions.
+## Rung 2: Ascension Protocol
 
-**Core rule: The machine doesn't punish ignorance. It rewards curiosity.**
+- 3 disciplines: Observe, Verify, Recover
+- 6 progressively available ranks
+- 9 trials per rank, 3 per discipline: 54 unique scenarios
+- 2 modes: Standard practice and a deliberately absurd, clearly fictional Chaos simulation
+- Offline Operator Passport: stored locally where possible, exportable/importable as versioned JSON
+- Real PhiOperator color-theme unlocks
+- Optional cross-app reward IDs reserved for PhiSurf, Gen.E.Wrist, DomistikaXR, and PhiServe. The host adapters in those repositories are NOT installed yet.
+- No telemetry, accounts, third-party JS, network requirement, or runtime dependencies
 
-- Nine scenario questions spanning **Observe / Verify / Recover**.
-- Contextual explanations, absurd system messages, and a fake Y2K-era operating system gag.
-- A training outcome instead of a lockout. Optional playful quiz is not an identity, intelligence, or political-opinion test.
-- A tiny, side-effect-free API for other software.
-- Separate, explicit confirmation helpers for consequential actions.
-- No accounts, telemetry, advertising, external fonts, or third-party JavaScript.
-- Keyboard-friendly interface and reduced-motion support.
-
-## Try it
-
-Open index.html in a browser, or serve the repo folder with any static file server. For the cleanest experience, use:
+Open index.html in a browser or host the repository on GitHub Pages. When serving locally, run:
 
     python -m http.server 8000
 
-Then visit http://localhost:8000. To publish to GitHub Pages after merge, go to Settings → Pages and serve the root of the main branch. No build step is required.
+Run automated checks with Node 20+:
 
-## For developers
-
-    npm test
     npm run check
+    npm test
 
-The package is native ECMAScript modules on Node 20+ or modern browsers. No npm install is required.
+## SDK example
 
-    import { createSession, submitAnswer, summarizeSession } from './src/index.js';
-    let game = createSession();
-    game = submitAnswer(game, 'observe-before-force');
-    console.log(summarizeSession(game));
+    import {
+      createPassport, createTrialSession, currentTrial, submitTrial,
+      recordTrial, listRewards, serializePassport
+    } from './src/index.js';
 
-Read docs/integration.md for the API and the distinction between comedy onboarding and actual permission checks.
+    let passport = createPassport();
+    let trial = createTrialSession(1, 'standard');
+    while (currentTrial(trial)) {
+      trial = submitTrial(trial, currentTrial(trial).correctId);
+    }
+    const outcome = recordTrial(passport, trial);
+    passport = outcome.passport;
+    console.log(listRewards(passport).filter(x => x.unlocked));
+    console.log(serializePassport(passport));
+
+See docs/ascension.md and docs/integration.md for safe integration guidance.
 
 ## Operator's Charter
 
 1. Be curious, not cruel.
-2. Offer explanations and another attempt.
-3. Always allow essential navigation, support, safety, and accessibility functions.
-4. Never grade people's beliefs, identity, education level, disabilities, accent, or reading speed.
-5. Keep scores ephemeral and local; do not turn them into personal rankings.
-6. Confirm dangerous *actions* by their consequences, never gate ordinary use by a quiz result.
+2. Let people learn and retake without lockouts.
+3. Never use quiz results as authorization, intelligence assessment, account standing, identity, or access control.
+4. Keep essential navigation, accessibility, support, and emergency functions available to all.
+5. Passports are local and user-editable; hosts must independently enforce permissions for real actions.
+6. Rewards are optional cosmetics, learning content, and creative extras.
 
-## Next rungs
-
-- Rung 2: signed, versioned PhiOperator challenge packs and localization.
-- Rung 3: integration adapters for PhiOS, PhiOS-Mobile, Gen.E.Wrist, and PhiSurf.
-- Rung 4: scenario-specific confirmation dialogs and auditable policy hooks.
-
-Licensed under MIT. This project is an entertainment and training interface, not a security boundary.
+MIT licensed, 2026 Φ369 Labs / MichaelWave369.

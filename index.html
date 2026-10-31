@@ -7,6 +7,7 @@
   <meta name="description" content="PhiOperator: a ridiculous retro operator challenge with actual helpful lessons. Curiosity earns the badge.">
   <title>Φ PhiOperator | The Operator's Test</title>
   <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./ascension.css">
   <script type="module" src="./app.js"></script>
 </head>
 <body>
@@ -21,7 +22,7 @@
           <div class="brand-sub">THE HUMAN INTERFACE INITIATIVE</div>
         </div>
       </div>
-      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.1.0</span></div>
+      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.2.0</span></div>
     </header>
 
     <main id="main" class="layout">
@@ -42,6 +43,7 @@
             </div>
             <p class="intro-note">Failure is not fatal. Ignorance is not permanent. Mock system messages are extremely permanent.</p>
             <button id="start" class="button button-primary" type="button">BEGIN EVALUATION <span aria-hidden="true">↗</span></button>
+            <button id="open-ascension" class="button button-outline ascension-intro-action" type="button">OPEN ASCENSION PASSPORT →</button>
           </div>
         </div>
 
@@ -69,8 +71,36 @@
             <div class="result-actions">
               <button id="retry" class="button button-primary" type="button">RESTART TEST <span aria-hidden="true">↺</span></button>
               <button id="review" class="button button-outline" type="button">VIEW FIELD NOTES</button>
+              <button id="open-ascension-from-result" class="button button-outline" type="button">ASCENSION PASSPORT →</button>
             </div>
+            <div id="result-unlocks" aria-live="polite"></div>
             <div id="field-notes" hidden></div>
+          </div>
+        </div>
+
+        <div id="ascension" class="console" hidden>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ASCENSION_PROTOCOL.EXE</span><span>RUNG 02</span></div>
+          <div class="ascension-content">
+            <h2>THE ASCENSION PROTOCOL</h2>
+            <p class="ascension-lede" id="passport-summary">3 DISCIPLINES • 6 RANKS • 54 TRIALS</p>
+            <div class="mode-switch" role="group" aria-label="Choose trial mode">
+              <button id="mode-standard" type="button" class="button button-outline active" aria-pressed="true">STANDARD MODE</button>
+              <button id="mode-chaos" type="button" class="button button-outline" aria-pressed="false">CHAOS MODE</button>
+            </div>
+            <p class="ascension-hint" id="mode-note">STANDARD MODE: Answer responsibly and unlock ranks.</p>
+            <div id="rank-grid" class="rank-grid" aria-label="Operator ranks"></div>
+            <h3 class="section-heading">THE REWARD VAULT / COSMETICS + INTEGRATION CONTRACTS</h3>
+            <div id="reward-grid" class="reward-grid" aria-label="Rewards"></div>
+            <h3 class="section-heading">YOUR OFFLINE OPERATOR PASSPORT</h3>
+            <p class="ascension-hint">Progress stays on this device unless exported. This is not a security credential.</p>
+            <div class="passport-actions">
+              <button id="passport-export" class="button button-primary" type="button">EXPORT PASSPORT ↓</button>
+              <input id="passport-import" type="file" accept=".json,application/json" aria-label="Import an Operator Passport JSON file">
+              <label class="button button-outline" for="passport-import">IMPORT PASSPORT ↑</label>
+              <button id="theme-reset" class="button button-outline" type="button">RESTORE DEFAULT THEME</button>
+              <button id="return-home" class="button button-outline" type="button">RETURN TO CONSOLE</button>
+            </div>
+            <p id="storage-status" role="status" aria-live="polite">LOCAL PASSPORT READY.</p>
           </div>
         </div>
 
@@ -88,8 +118,10 @@
         <div class="stat"><span>OPERATOR ID</span><strong>GUEST-000</strong></div>
         <div class="stat"><span>TRAINING STATUS</span><strong id="dossier-status">AWAITING INPUT</strong></div>
         <div class="stat"><span>QUERIES COMPLETED</span><strong id="dossier-answered">00 / 09</strong></div>
+        <div class="stat"><span>ASCENSION RANK</span><strong id="dossier-rank">01 / 06</strong></div>
         <div class="stat"><span>NEURAL PANIC LEVEL</span><strong class="mint">NOMINAL</strong></div>
         <div class="side-divider"></div>
+        <div id="cosmetic-stamp" class="cosmetic-stamp" hidden></div>
         <div class="side-bottom"><span class="little-asterisk">✳</span> NO CLOUD. NO TRACKING.<br> &nbsp;&nbsp;&nbsp; ALL DRAMA GENERATED LOCALLY.</div>
       </aside>
     </main>
