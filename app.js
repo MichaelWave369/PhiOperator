@@ -3,9 +3,10 @@ import {
   getUnlockedRank, getBestScore, isRankAvailable, listRewards, isRewardUnlocked,
   createTrialSession, currentTrial, submitTrial, summarizeTrial, recordTrial, getDeck
 } from './src/index.js';
+import { mountAcademyUI } from './src/academy-ui.js';
 
 const $ = id => document.getElementById(id);
-const panels = ['intro', 'quiz', 'result', 'ascension'];
+const panels = ['intro', 'quiz', 'result', 'ascension', 'academy'];
 const choices = $('choices');
 const feedback = $('feedback');
 const next = $('next');
@@ -304,6 +305,9 @@ async function importPassport(event) {
     $('storage-status').textContent = 'IMPORT REJECTED: INVALID OR UNSUPPORTED PASSPORT.';
   }
 }
+const academyUI = mountAcademyUI({ showPanel, returnToPassport: renderPassport });
+$('open-academy').addEventListener('click', academyUI.open);
+$('open-academy-passport').addEventListener('click', academyUI.open);
 $('start').addEventListener('click', () => startQuiz(1, 'standard'));
 $('open-ascension').addEventListener('click', renderPassport);
 $('open-ascension-from-result').addEventListener('click', renderPassport);
