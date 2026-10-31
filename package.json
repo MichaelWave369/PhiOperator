@@ -1,0 +1,14 @@
+{
+  "name": "phioperator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Sierra-style operator tests, educational prompts, and explicit action confirmations",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "exports": { ".": "./src/index.js" },
+  "scripts": {
+    "test": "node --test",
+    "check": "node --check app.js && node --check src/questions.js && node --check src/engine.js && node --check src/guard.js && node --check src/index.js"
+  },
+  "license": "MIT"
+}
