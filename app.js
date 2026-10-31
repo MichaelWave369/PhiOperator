@@ -4,9 +4,11 @@ import {
   createTrialSession, currentTrial, submitTrial, summarizeTrial, recordTrial, getDeck
 } from './src/index.js';
 import { mountAcademyUI } from './src/academy-ui.js';
+import { mountLivingLabUI } from "./src/living-labs-ui.js";
+import { listLivingBadges } from "./src/academy-passport.js";
 
 const $ = id => document.getElementById(id);
-const panels = ['intro', 'quiz', 'result', 'ascension', 'academy'];
+const panels = ['intro', 'quiz', 'result', 'ascension', 'academy', 'living'];
 const choices = $('choices');
 const feedback = $('feedback');
 const next = $('next');
@@ -242,6 +244,22 @@ function renderPassport() {
     item.append(meta, title, sub, button);
     ranks.append(item);
   }
+  // Academy achievements travel in the optional v1 Passport extension;
+  // they are not credentials and never unlock operating-system powers.
+  const badges = $("academy-badges");
+  badges.replaceChildren();
+  for (const badge of listLivingBadges(passport)) {
+    const item=document.createElement("div");
+    item.className="academy-badge"+(badge.earned?" academy-badge-earned":"");
+    const name=document.createElement("strong");
+    name.textContent=(badge.earned?"✳ ":"◇ ")+badge.name;
+    const progress=document.createElement("span");
+    progress.textContent=badge.mode.toUpperCase()+" • "+
+      (badge.bestScore===null?"NOT ATTEMPTED":badge.bestScore+"/3 BEST")+
+      (badge.earned?" • EARNED":"");
+    item.append(name,progress);
+    badges.append(item);
+  }
   const gallery = $('reward-grid');
   gallery.replaceChildren();
   for (const reward of listRewards(passport)) {
@@ -305,7 +323,20 @@ async function importPassport(event) {
     $('storage-status').textContent = 'IMPORT REJECTED: INVALID OR UNSUPPORTED PASSPORT.';
   }
 }
-const academyUI = mountAcademyUI({ showPanel, returnToPassport: renderPassport });
+const livingUI = mountLivingLabUI({
+  showPanel,
+  onExit: () => academyUI.open(),
+  getPassport: () => passport,
+  savePassport: updated => {
+    passport = updated;
+    savePassport();
+    updateDossier();
+  }
+});
+const academyUI = mountAcademyUI({
+  showPanel, returnToPassport: renderPassport,
+  launchLiving: (id,mode) => livingUI.open(id,mode)
+});
 $('open-academy').addEventListener('click', academyUI.open);
 $('open-academy-passport').addEventListener('click', academyUI.open);
 $('start').addEventListener('click', () => startQuiz(1, 'standard'));

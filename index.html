@@ -23,7 +23,7 @@
           <div class="brand-sub">THE HUMAN INTERFACE INITIATIVE</div>
         </div>
       </div>
-      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.4.0</span></div>
+      <div class="header-status"><span class="status-light"></span> SYSTEM ONLINE <span class="header-version">/ BUILD 0.5.0</span></div>
     </header>
 
     <main id="main" class="layout">
@@ -81,7 +81,7 @@
         </div>
 
         <div id="ascension" class="console" hidden>
-          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ASCENSION_PROTOCOL.EXE</span><span>RUNG 04</span></div>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ASCENSION_PROTOCOL.EXE</span><span>RUNG 05</span></div>
           <div class="ascension-content">
             <h2>THE ASCENSION PROTOCOL</h2>
             <p class="ascension-lede" id="passport-summary">3 DISCIPLINES • 6 RANKS • 54 TRIALS</p>
@@ -92,6 +92,8 @@
             <p class="ascension-hint" id="mode-note">STANDARD MODE: Answer responsibly and unlock ranks.</p>
             <div id="rank-grid" class="rank-grid" aria-label="Operator ranks"></div>
             <button id="open-academy-passport" class="button button-primary" type="button">ENTER TRAINING SIMULATORS →</button>
+            <h3 class="section-heading">ACADEMY BADGES / OPTIONAL PASSPORT V1 EXTENSION</h3>
+            <div id="academy-badges" class="academy-badge-grid" aria-label="Living Academy badges"></div>
             <h3 class="section-heading">THE REWARD VAULT / COSMETICS + INTEGRATION CONTRACTS</h3>
             <div id="reward-grid" class="reward-grid" aria-label="Rewards"></div>
             <h3 class="section-heading">YOUR OFFLINE OPERATOR PASSPORT</h3>
@@ -117,7 +119,7 @@
           <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span>ACADEMY_SIMULATOR.EXE</span><span>3 / 3 / 3</span></div>
           <div class="ascension-content">
             <h2>THE OPERATOR ACADEMY</h2>
-            <p class="ascension-hint">Three labs. Three stages each. Three choices each. All systems simulated. No actual commands or changes to your device.</p>
+            <p class="ascension-hint">Choose classic three-stage training or enter a living environment with six inspectable components, diagnostic tools, branching consequences and collectible badges. Everything is simulated offline.</p>
             <div id="academy-menu">
               <label class="academy-toggle"><input id="academy-chaos" type="checkbox"> CHAOS SIMULATION: choose the funniest fictional disaster</label>
               <p class="ascension-hint" id="academy-status" role="status" aria-live="polite">Select a safe training room.</p>
@@ -132,6 +134,42 @@
               <button id="academy-back" class="button button-outline" type="button">EXIT SIMULATION</button>
             </div>
             <button id="academy-exit" class="button button-outline" type="button">← BACK TO PASSPORT</button>
+          </div>
+        </div>
+
+        <div id="living" class="console" hidden>
+          <div class="console-top"><span class="terminal-dots" aria-hidden="true">● ● ●</span><span id="living-scene">LIVING_LAB.EXE</span><span>RUNG 05</span></div>
+          <div class="living-content">
+            <p class="living-safe-note">FICTIONAL TRAINING SANDBOX • ZERO NETWORK OR SYSTEM ACCESS</p>
+            <h2 id="living-title">LIVING OPERATOR LAB</h2>
+            <p id="living-subtitle" class="ascension-hint"></p>
+            <div class="living-phasebar">
+              <span id="living-mode">STANDARD / PRACTICE</span>
+              <span id="living-phase">PHASE 1/3 • OBSERVE</span>
+              <span id="living-score">SCORE 0/3</span>
+            </div>
+            <p class="living-goal" id="living-goal"></p>
+            <h3 class="living-heading">01 / INSPECT THE VIRTUAL RACK</h3>
+            <div id="living-rack" class="living-rack" role="group" aria-label="Six interactive virtual components"></div>
+            <p id="living-hint" class="living-feedback" role="status" aria-live="polite">
+              Inspect a component to reveal its simulated state.
+            </p>
+            <h3 class="living-heading">02 / SELECT A DIAGNOSTIC OR RECOVERY TOOL</h3>
+            <div id="living-tools" class="living-tools" role="group" aria-label="Three fictional actions for this phase"></div>
+            <h3 class="living-heading">03 / SIMULATED INCIDENT LOG</h3>
+            <ol id="living-log" class="living-log" aria-label="Recent simulator events"></ol>
+            <section id="living-report" class="living-report" hidden aria-labelledby="living-receipt-title">
+              <p class="eyebrow">FIELD REPORT / NOT AN AUTHORIZATION TOKEN</p>
+              <h3 id="living-receipt-title"></h3>
+              <strong id="living-receipt-score"></strong>
+              <p id="living-receipt-copy"></p>
+              <p id="living-receipt-unlock" role="status"></p>
+              <button id="living-report-restart" class="button button-primary" type="button">REPLAY MISSION →</button>
+            </section>
+            <div class="living-actions">
+              <button id="living-restart" class="button button-outline" type="button">RESET SIMULATION</button>
+              <button id="living-exit" class="button button-outline" type="button">← BACK TO ACADEMY</button>
+            </div>
           </div>
         </div>
 

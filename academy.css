@@ -10,3 +10,58 @@
 #academy-question {font-size:clamp(20px,2.4vw,28px);line-height:1.35;margin:10px 0 24px}
 #academy-next,#academy-back,#academy-exit {margin-right:8px}
 #academy-feedback {margin-top:18px}
+
+/* Rung 5 Living Academy: all buttons only affect in-memory sandbox state. */
+.academy-lab-entry{display:flex;flex-direction:column;gap:8px;min-width:0}
+.academy-lab-entry .academy-card{width:100%}
+.academy-living-launch{min-height:42px;border:1px solid var(--mint);background:#1b3b30;color:var(--mint);font:700 11px monospace;cursor:pointer;letter-spacing:.07em}
+.academy-living-launch:hover{background:#2a5944}
+.academy-badge-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:16px 0}
+.academy-badge{border:1px solid var(--line);padding:13px;background:#0a1b23;display:flex;flex-direction:column;gap:8px;opacity:.65}
+.academy-badge-earned{opacity:1;border-color:var(--mint)}
+.academy-badge strong{color:var(--mint);font-size:12px}
+.academy-badge span{color:#a7bfbb;font:10px monospace}
+.living-content{padding:24px 26px 35px}
+.living-content h2{font-size:clamp(24px,3vw,38px);letter-spacing:-.04em;margin:12px 0}
+.living-safe-note{color:var(--yellow);font:700 10px/1.5 monospace;letter-spacing:.1em}
+.living-phasebar{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 14px}
+.living-phasebar span{border:1px solid var(--line);padding:8px 10px;background:#10252d;font:700 10px monospace;color:var(--mint)}
+.living-phasebar .living-chaos{color:var(--yellow);border-color:var(--yellow)}
+.living-goal{color:var(--white);font-size:16px;line-height:1.6;border-left:3px solid var(--mint);padding:8px 13px}
+.living-heading{font:700 12px monospace;color:var(--mint);letter-spacing:.08em;margin:27px 0 12px}
+.living-rack{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.living-node{padding:16px 8px;min-height:114px;text-align:center;border:1px solid #48636c;background:linear-gradient(#142532,#08131e);color:var(--white);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:9px;cursor:pointer}
+.living-node small{font:9px monospace;letter-spacing:.1em;color:#94b4b6}
+.living-node strong{font:700 12px monospace;overflow-wrap:anywhere}
+.living-node-status{font:700 9px monospace;color:#c5d1c9}
+.living-state-fault{border-color:#d68365}
+.living-state-fault .living-node-status{color:#ffab8d}
+.living-state-suspect,.living-state-identified{border-color:var(--yellow)}
+.living-state-suspect .living-node-status{color:var(--yellow)}
+.living-state-recovered,.living-state-healthy{border-color:#3b836d}
+.living-state-recovered .living-node-status{color:var(--mint)}
+.living-state-dramatic{border-color:#ce8cce;background:#2e2032}
+.living-state-dramatic .living-node-status{color:#efc5f0}
+.living-node.living-selected{outline:3px solid var(--mint);outline-offset:2px}
+.living-node:disabled{cursor:default;opacity:.8}
+.living-feedback{padding:12px 14px;border-left:2px solid var(--mint);background:#0a2530;color:#c1e3df;font:12px/1.7 monospace;min-height:63px}
+.living-tools{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:9px}
+.living-tool{padding:15px 10px;border:1px solid #367b68;background:#132a26;text-align:left;min-height:100px;display:flex;flex-direction:column;justify-content:space-between;gap:12px;color:var(--white);cursor:pointer}
+.living-tool strong{font:700 12px/1.5 monospace}
+.living-tool small{color:#b1cabf;font:9px monospace}
+.living-tool-chaos{border-color:#9960ab;background:#2d1c34}
+.living-tool:hover{filter:brightness(1.25)}
+.living-log{list-style:none;margin:0;padding:0;max-height:240px;overflow-y:auto}
+.living-log li{font:11px/1.6 monospace;padding:10px 13px;border-top:1px solid var(--line);color:#a4c8c0}
+.living-log li:first-child{color:var(--mint)}
+.living-report{padding:24px;border:1px solid var(--mint);background:#143328;margin:25px 0}
+.living-report h3{font-size:21px;margin:9px 0}
+.living-report p{line-height:1.6}
+#living-receipt-unlock{font:700 12px monospace;color:var(--mint)}
+.living-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:20px}
+@media(max-width:650px){
+.living-content{padding:17px}
+.living-rack{grid-template-columns:repeat(2,minmax(0,1fr))}
+.living-tools,.academy-badge-grid{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){.living-node,.living-tool{transition:none!important;animation:none!important}}
