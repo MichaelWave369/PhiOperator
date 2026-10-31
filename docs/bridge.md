@@ -9,7 +9,7 @@
 3. Open the Gen.E.Wrist browser console at https://michaelwave369.github.io/GenEWrist/.
 4. Go to Device Settings → Operator Passport Bridge → IMPORT OPERATOR PASSPORT.
 5. Select that JSON file and accept the explicit confirmation. Gen.E.Wrist shows your cleared rank.
-6. Open ΦSURF (Shift+Space or the floating dial), then 3·6·9 MODULES → OPERATOR SHORTCUTS. Favorite a few Gen.E.Wrist modules to populate the shortcuts.
+6. Open ΦSURF (Shift+Space or the floating dial), then 3·6·9 MODULES → OPERATOR SHORTCUTS. The submenu offers SIGL Designer, S.N.A.K.E.'s Toolkit and JourneyLog, using existing safe local app launchers.
 7. To reverse the transfer, Device Settings → REMOVE IMPORT; this removes only Gen.E.Wrist's local copy.
 
 Note: step 4 requires the corresponding Gen.E.Wrist adapter PR to be merged and deployed. If the import section is missing, the host has not been updated yet.
