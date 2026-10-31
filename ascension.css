@@ -1,0 +1,45 @@
+/* Ascension additions; the original CRT interface remains intact. */
+.ascension-intro-action { margin-left: 9px; }
+.ascension-content { padding: 24px 28px 32px; }
+.ascension-content h2 { font-size: clamp(26px,3vw,38px); margin: 4px 0 8px; letter-spacing: -.04em; }
+.ascension-lede { font: 12px/1.7 monospace; color: var(--mint); margin: 12px 0 22px; }
+.ascension-hint { color: #abc4c4; font: 12px/1.7 monospace; margin: 14px 0 23px; }
+.mode-switch { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+.mode-switch .button { margin: 0; justify-content: center; }
+.mode-switch .active { background: var(--mint); color: #07141a; }
+.rank-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 12px; }
+.rank-card { display: flex; flex-direction: column; min-height: 190px; border: 1px solid var(--line); background: #09151ee6; padding: 17px; }
+.rank-ready { border-color: #407467; }
+.rank-locked { opacity: .58; }
+.rank-top { display: flex; justify-content: space-between; gap: 12px; font: 10px monospace; color: var(--mint); }
+.rank-top span:last-child { color: var(--yellow); }
+.rank-card h3 { font-size: 18px; margin: 16px 0 6px; }
+.rank-card p { color: #a2b9bf; font-size: 12px; line-height: 1.5; margin: 0 0 14px; }
+.rank-card .rank-button { width: 100%; margin: auto 0 0; justify-content: center; min-height: 40px; padding: 8px; font-size: 10px; }
+.rank-button:disabled { cursor: not-allowed; color: #7c909a; border-color: #34414b; }
+.section-heading { margin: 34px 0 14px; font: bold 12px monospace; letter-spacing: .09em; color: var(--mint); border-bottom: 1px solid var(--line); padding-bottom: 13px; }
+.reward-grid { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 10px; }
+.reward-item { border: 1px solid var(--line); background: #0b1821; padding: 14px; }
+.reward-owned { border-color: #457c68; }
+.reward-pending { opacity: .65; }
+.reward-item strong { font-size: 13px; }
+.reward-item p { color: #b0c4c7; font-size: 12px; line-height: 1.5; margin: 7px 0; }
+.reward-item small { color: var(--mint); font: 9px/1.6 monospace; }
+.theme-action { display: block; width: 100%; color: #09201b; background: var(--mint); border: 0; padding: 10px; margin-top: 12px; font: bold 10px monospace; }
+.passport-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.passport-actions .button { margin-top: 10px; }
+.passport-actions label.button { cursor: pointer; }
+#passport-import { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+#passport-import:focus-visible + label { outline: 3px solid var(--mint); }
+#storage-status { color: var(--mint); font: 10px/1.6 monospace; margin-top: 12px; }
+#result-unlocks { margin-top: 20px; text-align: left; padding: 12px 18px; border-top: 1px solid var(--line); color: var(--mint); font: 12px/1.5 monospace; }
+#result-unlocks:empty { display: none; }
+#result-unlocks h3 { font-size: 12px; }
+.simulation-note { color: var(--yellow); }
+[data-operator-theme="theme-amber"] { --mint: #ffc77b; --green: #e4a651; --yellow: #f4e0b4; }
+[data-operator-theme="theme-violet"] { --mint: #e5b9ff; --green: #b984eb; --yellow: #ead4ff; }
+[data-operator-theme="theme-signal"] { --mint: #57ffc4; --green: #3be6a5; --yellow: #a6ffdb; }
+[data-operator-theme="theme-midnight"] { --mint: #a5c9ff; --green: #6b9edd; --yellow: #c9daff; }
+[data-operator-theme="theme-chaos"] { --mint: #ff9eb3; --green: #f27195; --yellow: #ffd58c; }
+@media (max-width: 600px) { .ascension-content { padding: 17px; } .rank-grid,.reward-grid { grid-template-columns: 1fr; } .ascension-intro-action { margin-left: 0; } }
+@media (prefers-reduced-motion: reduce) { .rank-card,.reward-item { transition: none; } }
